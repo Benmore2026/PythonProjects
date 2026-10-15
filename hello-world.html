@@ -133,12 +133,23 @@
       letter-spacing: .04em;
     }
 
+    .site-nav { position: fixed; z-index: 2; top: 22px; left: 50%; display: flex; gap: 8px; padding: 6px; border: 1px solid var(--line); border-radius: 999px; background: rgba(16,19,38,.58); backdrop-filter: blur(16px); transform: translateX(-50%); }
+    .site-nav a { padding: 9px 15px; border-radius: 999px; color: var(--muted); font-size: .85rem; font-weight: 600; text-decoration: none; transition: color .2s ease, background .2s ease; }
+    .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); background: rgba(255,255,255,.1); }
+    .site-nav a:focus-visible { outline: 2px solid #9cefe3; outline-offset: 3px; }
+    @media (max-width: 480px) { .site-nav { top: 14px; } body { padding-top: 72px; } }
+
     @keyframes arrive { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
     @keyframes drift { to { transform: translate3d(22px, 28px, 0) scale(1.07); } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="hello-world.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <div class="orb one" aria-hidden="true"></div>
   <div class="orb two" aria-hidden="true"></div>
 
